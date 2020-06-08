@@ -11,7 +11,7 @@ function billWithSettings() {
     function setCallCost(callCost) {
         theCallCost = callCost;
     };
-
+//console.log(theCallCost)
     function getCallCost() {
         return theCallCost;
     };
@@ -55,7 +55,7 @@ function billWithSettings() {
     function getTotalCost() {
         return callCostTotal + smsCostTotal;
     };
-
+    
     function getTotalCallCost() {
         return callCostTotal;
     };
@@ -71,23 +71,23 @@ function billWithSettings() {
 
 
    };
-    //instead of doing this over and over create a reach critical function
-   function hasReachedCriticalLevel() {
-        return getTotalCost() <= getCriticalLevel();
-    };
-    
-    function totalClassName() {
-        if (getTotalCost() >= getCriticalLevel()) {
-            return "critical"
-        }
+  
+   //instead of doing this over and over create a reach critical function
+ function hasReachedCriticalLevel() {
+    return getTotalCost() <= getCriticalLevel();
+};
+  //created a function for coloring my totals.
+function totalClassName() {
+    if (getTotalCost() >= getCriticalLevel()) {
+        return "danger"
+    }
 
-        if (getTotalCost() >= getWarningLevel()) {
-            return "warning"
+    if (getTotalCost() >= getWarningLevel()) {
+        return "warning"
 
-        }
-    };
-   
+    }
 
+};
 
 
     return {
@@ -106,6 +106,7 @@ function billWithSettings() {
         getTotalSmsCost,
         sendSms,
         hasReachedCriticalLevel,
-        totalClassName
+        totalClassName,
+       
     };
 };

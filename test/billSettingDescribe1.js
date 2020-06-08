@@ -176,7 +176,7 @@ describe("The bill with settings factory function", function () {
 
             //another test for critical level
 
-            it("should return a class name of critical, if critical level is reached ", function () {
+            it("should return a class name of danger, if danger level is reached ", function () {
                 let settingBill = billWithSettings();
                 settingBill.setWarningLevel(5);
                 settingBill.setCriticalLevel(10);
@@ -192,14 +192,14 @@ describe("The bill with settings factory function", function () {
                 settingBill.makeCall();
                 settingBill.makeCall();
 
-                assert.equal("critical", settingBill.totalClassName());
+                assert.equal("danger", settingBill.totalClassName());
 
 
 
             });
             //stopping total from adding once critical level is reached
 
-            it("should stop the total call cost from increasing when critical level reach ", function () {
+            it("should stop the total call cost from increasing when danger/critical level reach ", function () {
                 let settingBill = billWithSettings();
 
                 settingBill.setCallCost(2.50);
@@ -216,7 +216,7 @@ describe("The bill with settings factory function", function () {
                 settingBill.makeCall();
                 settingBill.makeCall();
 
-                assert.equal("critical", settingBill.totalClassName());
+                assert.equal("danger", settingBill.totalClassName());
                 assert.equal("12.5", settingBill.getTotalCallCost());
 
 
@@ -224,7 +224,7 @@ describe("The bill with settings factory function", function () {
             });
             // setthe citical level to new value and see if it icreased new instance
 
-            it("should allow the total increase after the critical level & upping the critical level", function () {
+            it("should allow the total increase after the critical/danger level & upping the critical level", function () {
                 let settingBill = billWithSettings();
                 settingBill.setWarningLevel(8);
                 settingBill.setCriticalLevel(10);
@@ -241,7 +241,7 @@ describe("The bill with settings factory function", function () {
                 settingBill.makeCall();
 
 
-                assert.equal("critical", settingBill.totalClassName());
+                assert.equal("danger", settingBill.totalClassName());
                 assert.equal(12.5, settingBill.getTotalCallCost());
 
                 //now change or up it to 20

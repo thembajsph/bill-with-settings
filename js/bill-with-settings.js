@@ -1,5 +1,5 @@
 //all my element reference on top 
-var radioBillAddBtnElem = document.querySelector('.button-primary'); 
+var radioBillAddBtnElem = document.querySelector('.addButton'); 
 
 var updateSettingsBtnElem = document.querySelector('.buttonUpdateSettings');
 
@@ -52,12 +52,7 @@ function calculateBtn(){
   
 var checkedRadioBtn = document.querySelector("input[name='billItemTypeWithSettings']:checked");
 
-//checking if the button is checked what should happen
 
-if (checkedRadioBtn){
-//  Getting the value from the radio button 
-    var billItemType = checkedRadioBtn.value;
-    // billItemType will be 'call' or 'sms';
   //this stops the counter when it reachies the critical level
   if(total < criticalLevelSettingInp){
     if (billItemType === 'call'){
@@ -105,11 +100,11 @@ function appedingToHtml(){
   
 //trigering the click event
 
-radioBillAddBtnElem.addEventListener('click', calculateBtn);
+//radioBillAddBtnElem.addEventListener('click', calculateBtn);
 
 //triggering the update settings 
 
-updateSettingsBtnElem.addEventListener('click', updatedSettingsBtn);
+//updateSettingsBtnElem.addEventListener('click', updatedSettingsBtn)
 
 
 
