@@ -35,18 +35,14 @@ function calculateBtn() {
     if (radioValue === 'sms') {
       phoneBillInstance.sendSms()
     }
-     // calling my colour function from factory function
-    totalTwoElem.classList.add(phoneBillInstance.totalClassName());
-    
+    colour();
+     
     
     //putting the results to html
     appedingToHtml();
-    
   };
 };
 
-totalTwoElem.classList.remove("danger");
-totalTwoElem.classList.remove("warning");
 
 
 //putting back all the results to html
@@ -55,16 +51,24 @@ function appedingToHtml() {
   callTotalTwoElem.innerHTML = phoneBillInstance.getTotalCallCost().toFixed(2);
   smsTotalTwoElem.innerHTML = phoneBillInstance.getTotalSmsCost().toFixed(2);
   totalTwoElem.innerHTML = phoneBillInstance.getTotalCost().toFixed(2);
-
-  // calling my colour function from factory function
-  totalTwoElem.classList.add(phoneBillInstance.totalClassName());
+;
+    
+ 
  
 };
+function colour() {
+  totalTwoElem.classList.remove("danger");
+  totalTwoElem.classList.remove("warning");
+
+  // calling my colour function from factory function
+totalTwoElem.classList.add(phoneBillInstance.totalClassName())
+}
 
 
 //function to update values coming from settings 
 function updatedSettingsBtn() {
   
+   
   
   phoneBillInstance.setCallCost(Number(callCostSettingInpElem.value));
 
@@ -74,7 +78,10 @@ function updatedSettingsBtn() {
 
   phoneBillInstance.setCriticalLevel(Number(criticalLevelSettingInpElem.value));
 
+// calling my colour function from factory function
+colour();
 }
+
 
 
   //trigering the click event

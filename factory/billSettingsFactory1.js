@@ -46,7 +46,7 @@ function billWithSettings() {
     function makeCall() {
         //havent reached the critical level
 
-      if (hasReachedCriticalLevel()) {
+      if (!hasReachedCriticalLevel()) {
             callCostTotal += theCallCost;
         }
 
@@ -65,7 +65,7 @@ function billWithSettings() {
     };
 
     function sendSms() {
-        if (hasReachedCriticalLevel()) {
+        if (!hasReachedCriticalLevel()) {
             smsCostTotal += theSmsCost;
         }
 
@@ -74,7 +74,7 @@ function billWithSettings() {
   
    //instead of doing this over and over create a reach critical function
  function hasReachedCriticalLevel() {
-    return getTotalCost() <= getCriticalLevel();
+    return getTotalCost() >= getCriticalLevel();
 };
   //created a function for coloring my totals.
 function totalClassName() {
@@ -82,7 +82,7 @@ function totalClassName() {
         return "danger"
     }
 
-    if (getTotalCost() >= getWarningLevel()) {
+    if (getTotalCost() >= getWarningLevel() ) {
         return "warning"
 
     }
